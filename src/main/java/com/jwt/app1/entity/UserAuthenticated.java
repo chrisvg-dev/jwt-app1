@@ -39,7 +39,7 @@ public class UserAuthenticated implements UserDetails {
 
     @Override
     public String getPassword() {
-        return this.getPassword();
+        return this.pwd;
     }
 
     @Override

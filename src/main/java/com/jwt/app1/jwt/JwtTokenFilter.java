@@ -30,27 +30,24 @@ public class JwtTokenFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         try {
             String token = getToken(request);
+            if(token != null && jwtProvider.validate(token)){
+                String nombreUsuario = jwtProvider.getUsernameFromToken(token);
+                UserDetails userDetails = userDetailsService.loadUserByUsername(nombreUsuario);
 
-            if (token != null || jwtProvider.validate(token)) {
-                String username = jwtProvider.getUsernameFromToken(token);
-                UserDetails userDetails = this.userDetailsService.loadUserByUsername( username );
-                UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(
-                        userDetails, null, userDetails.getAuthorities()
-                );
-                SecurityContextHolder.getContext().setAuthentication( auth );
+                UsernamePasswordAuthenticationToken auth =
+                        new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+                SecurityContextHolder.getContext().setAuthentication(auth);
             }
-
-        } catch (Exception e) {
-            logger.error("Fail en el doFilter: " + e.getMessage());
+        } catch (Exception e){
+            logger.error("fail en el método doFilter " + e.getMessage());
         }
         filterChain.doFilter(request, response);
     }
 
     private String getToken(HttpServletRequest request) {
         String header = request.getHeader("Authorization");
-        if (header != null || header.startsWith("Bearer")){
+        if(header != null && header.startsWith("Bearer"))
             return header.replace("Bearer ", "");
-        }
         return null;
     }
 }

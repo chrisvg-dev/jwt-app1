@@ -65,8 +65,9 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<JwtTokenDto> login(@RequestBody LoginDto user) {
+        System.out.println(user);
         Authentication auth = this.authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken( user.getUsername(), user.getPassword() )
+                new UsernamePasswordAuthenticationToken( user.getUsername(), user.getPwd() )
         );
         // ASIGNA AL USUARIO AUTHENTICADO AL CONTEXTO DE LA APLICACION
         SecurityContextHolder.getContext().setAuthentication( auth );
