@@ -1,7 +1,7 @@
-package com.jwt.app1.repository;
+package com.jwt.app1.security.repository;
 
-import com.jwt.app1.entity.Rol;
-import com.jwt.app1.enums.RolName;
+import com.jwt.app1.security.entity.Rol;
+import com.jwt.app1.security.enums.RolName;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

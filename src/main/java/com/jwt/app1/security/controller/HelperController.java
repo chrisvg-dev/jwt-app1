@@ -1,4 +1,4 @@
-package com.jwt.app1.controller;
+package com.jwt.app1.security.controller;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

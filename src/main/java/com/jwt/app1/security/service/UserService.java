@@ -1,7 +1,7 @@
-package com.jwt.app1.service;
+package com.jwt.app1.security.service;
 
-import com.jwt.app1.entity.User;
-import com.jwt.app1.repository.UserRepository;
+import com.jwt.app1.security.entity.User;
+import com.jwt.app1.security.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

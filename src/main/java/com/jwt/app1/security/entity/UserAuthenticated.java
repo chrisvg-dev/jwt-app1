@@ -1,4 +1,4 @@
-package com.jwt.app1.entity;
+package com.jwt.app1.security.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

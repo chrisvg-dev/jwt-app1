@@ -1,15 +1,15 @@
-package com.jwt.app1.controller;
+package com.jwt.app1.security.controller;
 
-import com.jwt.app1.dto.JwtTokenDto;
-import com.jwt.app1.dto.LoginDto;
-import com.jwt.app1.dto.Message;
-import com.jwt.app1.dto.UserDto;
-import com.jwt.app1.entity.Rol;
-import com.jwt.app1.entity.User;
-import com.jwt.app1.enums.RolName;
-import com.jwt.app1.jwt.JwtProvider;
-import com.jwt.app1.service.RolService;
-import com.jwt.app1.service.UserService;
+import com.jwt.app1.security.dto.JwtTokenDto;
+import com.jwt.app1.security.dto.LoginDto;
+import com.jwt.app1.security.dto.Message;
+import com.jwt.app1.security.dto.UserDto;
+import com.jwt.app1.security.entity.Rol;
+import com.jwt.app1.security.entity.User;
+import com.jwt.app1.security.enums.RolName;
+import com.jwt.app1.security.jwt.JwtProvider;
+import com.jwt.app1.security.service.RolService;
+import com.jwt.app1.security.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -50,7 +50,6 @@ public class AuthController {
                 .email( user.getEmail() )
                 .pwd( this.passwordEncoder.encode( user.getPwd() ) )
                 .build();
-        System.out.println(newUser);
 
         Set<Rol> roles = new HashSet();
         roles.add( this.rolService.findByRolName( RolName.ROLE_USER ).get() );
@@ -65,7 +64,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<JwtTokenDto> login(@RequestBody LoginDto user) {
-        System.out.println(user);
+
         Authentication auth = this.authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken( user.getUsername(), user.getPwd() )
         );

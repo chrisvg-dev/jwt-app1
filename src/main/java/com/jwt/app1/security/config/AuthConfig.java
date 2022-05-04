@@ -1,8 +1,8 @@
-package com.jwt.app1.config;
+package com.jwt.app1.security.config;
 
-import com.jwt.app1.jwt.JwtEntryPoint;
-import com.jwt.app1.jwt.JwtTokenFilter;
-import com.jwt.app1.service.UserDetailServiceImpl;
+import com.jwt.app1.security.jwt.JwtEntryPoint;
+import com.jwt.app1.security.jwt.JwtTokenFilter;
+import com.jwt.app1.security.service.UserDetailServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,7 +1,6 @@
-package com.jwt.app1.entity;
+package com.jwt.app1.security.entity;
 
-import com.jwt.app1.enums.RolName;
-import jdk.jfr.DataAmount;
+import com.jwt.app1.security.enums.RolName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

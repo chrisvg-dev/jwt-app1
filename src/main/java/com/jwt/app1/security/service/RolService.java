@@ -1,8 +1,8 @@
-package com.jwt.app1.service;
+package com.jwt.app1.security.service;
 
-import com.jwt.app1.entity.Rol;
-import com.jwt.app1.enums.RolName;
-import com.jwt.app1.repository.RolRepository;
+import com.jwt.app1.security.entity.Rol;
+import com.jwt.app1.security.enums.RolName;
+import com.jwt.app1.security.repository.RolRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

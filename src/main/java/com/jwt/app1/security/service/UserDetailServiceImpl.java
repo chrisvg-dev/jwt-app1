@@ -1,7 +1,7 @@
-package com.jwt.app1.service;
+package com.jwt.app1.security.service;
 
-import com.jwt.app1.entity.User;
-import com.jwt.app1.entity.UserAuthenticated;
+import com.jwt.app1.security.entity.User;
+import com.jwt.app1.security.entity.UserAuthenticated;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
